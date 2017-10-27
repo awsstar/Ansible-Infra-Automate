@@ -15,7 +15,7 @@
         load_balancer_port: 443
         instance_protocol: http
         instance_port: 7070
-        ssl_certificate_id: arn:aws:acm:us-east-1:238537778401:certificate/76134d36-2c41-4c99-97c1-090936d87d54
+        ssl_certificate_id: YOUR_CERT_ARN
       - protocol: tcp
         load_balancer_port: 5222
         instance_protocol: tcp
