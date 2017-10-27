@@ -5,33 +5,25 @@
     region: "{{ region }}"
     name: "elb1server"
     state: present
-    security_group_ids: "{{ aws_sg.group_id }}" 
+    security_group_ids: "{{ aws_sg.group_id }}"
     subnets: "{{ vpc.subnets[0].id }}"
     listeners:
       - protocol: http
         load_balancer_port: 80
-        instance_port: 7070
+        instance_port: 80
       - protocol: https
         load_balancer_port: 443
         instance_protocol: http
-        instance_port: 7070
-        ssl_certificate_id: YOUR_CERT_ARN
-      - protocol: tcp
-        load_balancer_port: 5222
-        instance_protocol: tcp
-        instance_port: 5222
-      - protocol: tcp
-        load_balancer_port: 8188
-        instance_protocol: tcp
-        instance_port: 8188
+        instance_port: 80
+        ssl_certificate_id: YOUR_ARN
     health_check:
         ping_protocol: tcp
-        ping_port: 7070
+        ping_port: 80
         response_timeout: 5
         interval: 30
         unhealthy_threshold: 5
         healthy_threshold: 3
-  register: ec2_elb 
+  register: ec2_elb
 - debug: var=ec2_elb
 
 
