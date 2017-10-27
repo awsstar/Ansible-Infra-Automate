@@ -1,0 +1,6 @@
+---
+
+- name: Updating the public IP
+  command: "{{ playbook_dir }}/dynamic.sh {{ playbook_dir }}/hosts"
+
+- pause: minutes=2

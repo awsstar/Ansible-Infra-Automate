@@ -1,0 +1,13 @@
+---
+
+- name: Update the server 
+  yum: name=* state=latest
+
+- name: Install epel-repo
+  yum: name=epel-release state=latest
+
+- name: Install Nginx
+  yum: name=nginx state=latest
+
+- name: start the service
+  cmd: systemctl start nginx 

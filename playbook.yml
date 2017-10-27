@@ -1,0 +1,24 @@
+- hosts: localhost
+  connection: local
+  become_method: su
+  gather_facts: yes
+  vars:
+      keypair: "YOUR_EXISTING_KEY"
+      image1: "YOUR_AMI_ID"
+      region: "us-east-1"
+      #Prefix for naming
+      prefix: "CHOOSE_ANY_NAME"
+      az: "us-east-1b"
+      inst_name1: "server1"
+      security_group: "CHOOSE_ANY_NAME"
+
+  roles:
+    - VPC
+    - INSTANCES
+    - UPDATEIP
+- hosts: servers
+  sudo: yes
+  remote_user: ec2-user
+  roles:
+   - UPDATEHOST
+

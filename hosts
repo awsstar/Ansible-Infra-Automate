@@ -1,0 +1,5 @@
+[local]
+localhost
+[servers]
+server1 ansible_ssh_private_key_file="{{ playbook_dir }}/YOUR-KEY.PEM" ansible_host="54.198.202.93"
+
