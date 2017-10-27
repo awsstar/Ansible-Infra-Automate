@@ -44,14 +44,8 @@
           - proto: all
             group_id : "{{ aws_sg.group_id }}"
           - proto: all
-            cidr_ip: 182.74.32.195/32
-          - proto: all
-            cidr_ip: 203.197.78.162/32
-          - proto: all
-            cidr_ip: 182.74.32.196/32
-          - proto: all
-            cidr_ip: 106.51.254.158/32
-        rules_egress:
+            cidr_ip: 0.0.0.0/0
+         rules_egress:
           - proto: all
             cidr_ip: 0.0.0.0/0
   register: aws_sg
